@@ -1,5 +1,5 @@
 // script.js
-const apiKey = 'YOUR_API_KEY';  // Replace with your OpenWeatherMap API key
+const apiKey = '9dfdfee3e1414343c1562de0784a9f67';  // Replace with your OpenWeatherMap API key
 
 document.getElementById('search-btn').addEventListener('click', function() {
     const city = document.getElementById('city-input').value;
@@ -42,56 +42,24 @@ function getWeather(city) {
         });
 }
 
+// Function to change background based on weather condition
 function changeBackground(weather) {
     const weatherContainer = document.getElementById('weather-container');
     
     switch (weather.toLowerCase()) {
         case 'clear':
-            weatherContainer.style.background = 'linear-gradient(135deg, #ff9a9e, #fad0c4)';
+            weatherContainer.style.background = 'linear-gradient(45deg, #ff9a9e, #fad0c4)';
             break;
         case 'clouds':
-            weatherContainer.style.background = 'linear-gradient(135deg, #c9d6ff, #e2e2e2)';
+            weatherContainer.style.background = 'linear-gradient(45deg, #c9d6ff, #e2e2e2)';
             break;
         case 'rain':
-            weatherContainer.style.background = 'linear-gradient(135deg, #4e54c8, #8f94fb)';
+            weatherContainer.style.background = 'linear-gradient(45deg, #4e54c8, #8f94fb)';
             break;
         case 'snow':
-            weatherContainer.style.background = 'linear-gradient(135deg, #e6dada, #274046)';
+            weatherContainer.style.background = 'linear-gradient(45deg, #e6dada, #274046)';
             break;
         default:
-            weatherContainer.style.background = 'linear-gradient(135deg, #36d1dc, #5b86e5)';
+            weatherContainer.style.background = 'linear-gradient(45deg, #36d1dc, #5b86e5)';
     }
 }
-
-// Theme Toggle
-document.getElementById('light-mode').addEventListener('click', () => {
-    document.body.style.background = 'linear-gradient(135deg, #f9d423, #ff4e50)';
-});
-
-document.getElementById('dark-mode').addEventListener('click', () => {
-    document.body.style.background = 'linear-gradient(135deg, #434343, #000000)';
-});
-const toggleSwitch = document.querySelector('#checkbox');
-const currentTheme = localStorage.getItem('theme') || 'light';
-
-// Load theme based on user preference
-if (currentTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    toggleSwitch.checked = true;
-} else {
-    document.body.classList.add('light-mode');
-}
-
-// Toggle between light and dark mode
-toggleSwitch.addEventListener('change', function() {
-    if (toggleSwitch.checked) {
-        document.body.classList.remove('light-mode');
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light');
-    }
-});
-
