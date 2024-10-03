@@ -16,15 +16,15 @@ function getWeather(city) {
         .then(data => {
             // Extract weather details
             document.getElementById('city-name').innerText = `${data.name}, ${data.sys.country}`;
-            document.getElementById('temperature').innerText = `Temperature: ${data.main.temp} °C`;
-            document.getElementById('feels-like').innerText = `Feels Like: ${data.main.feels_like} °C`;
-            document.getElementById('description').innerText = `Weather: ${data.weather[0].description}`;
+            document.getElementById('temperature').innerText = `Temp: ${data.main.temp}°C`;
+            document.getElementById('feels-like').innerText = `Feels Like: ${data.main.feels_like}°C`;
+            document.getElementById('description').innerText = `${data.weather[0].description.toUpperCase()}`;
             document.getElementById('humidity').innerText = `Humidity: ${data.main.humidity}%`;
             document.getElementById('pressure').innerText = `Pressure: ${data.main.pressure} hPa`;
-            document.getElementById('wind').innerText = `Wind Speed: ${data.wind.speed} m/s`;
-            document.getElementById('visibility').innerText = `Visibility: ${data.visibility / 1000} km`;
+            document.getElementById('wind').innerText = `Wind: ${data.wind.speed} m/s`;
+            document.getElementById('visibility').innerText = `Visibility: ${(data.visibility / 1000).toFixed(1)} km`;
 
-            // Display sunrise and sunset times
+            // Sunrise and Sunset
             const sunriseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
             const sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString();
             document.getElementById('sunrise').innerText = `Sunrise: ${sunriseTime}`;
@@ -34,7 +34,7 @@ function getWeather(city) {
             const iconCode = data.weather[0].icon;
             document.getElementById('weather-icon').src = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
-            // Change background color based on weather
+            // Change background dynamically based on weather condition
             changeBackground(data.weather[0].main);
         })
         .catch(error => {
@@ -42,24 +42,32 @@ function getWeather(city) {
         });
 }
 
-// Function to change background based on weather condition
 function changeBackground(weather) {
     const weatherContainer = document.getElementById('weather-container');
     
     switch (weather.toLowerCase()) {
         case 'clear':
-            weatherContainer.style.background = 'linear-gradient(to right, #f5af19, #f12711)';
+            weatherContainer.style.background = 'linear-gradient(135deg, #ff9a9e, #fad0c4)';
             break;
         case 'clouds':
-            weatherContainer.style.background = 'linear-gradient(to right, #bdc3c7, #2c3e50)';
+            weatherContainer.style.background = 'linear-gradient(135deg, #c9d6ff, #e2e2e2)';
             break;
         case 'rain':
-            weatherContainer.style.background = 'linear-gradient(to right, #00c6ff, #0072ff)';
+            weatherContainer.style.background = 'linear-gradient(135deg, #4e54c8, #8f94fb)';
             break;
         case 'snow':
-            weatherContainer.style.background = 'linear-gradient(to right, #e6dada, #274046)';
+            weatherContainer.style.background = 'linear-gradient(135deg, #e6dada, #274046)';
             break;
         default:
-            weatherContainer.style.background = 'linear-gradient(to right, #36d1dc, #5b86e5)';
+            weatherContainer.style.background = 'linear-gradient(135deg, #36d1dc, #5b86e5)';
     }
 }
+
+// Theme Toggle
+document.getElementById('light-mode').addEventListener('click', () => {
+    document.body.style.background = 'linear-gradient(135deg, #f9d423, #ff4e50)';
+});
+
+document.getElementById('dark-mode').addEventListener('click', () => {
+    document.body.style.background = 'linear-gradient(135deg, #434343, #000000)';
+});
