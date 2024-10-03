@@ -1,21 +1,13 @@
 /* style.css */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(45deg, #f9d423, #ff4e50, #36d1dc, #5b86e5);
-    background-size: 600% 600%;
-    animation: gradient 15s ease infinite;
-    height: 100vh;
-    margin: 0;
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
-}
-
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
 }
 
 .weather-container {
@@ -26,8 +18,7 @@ body {
     text-align: center;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     max-width: 450px;
-    width: 100%;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .weather-container:hover {
@@ -35,42 +26,40 @@ body {
 }
 
 h1 {
-    font-size: 32px;
+    color: #fff;
+    font-size: 28px;
     margin-bottom: 20px;
-    background: -webkit-linear-gradient(#f9d423, #ff4e50);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .search-box {
-    display: flex;
-    justify-content: center;
     margin-bottom: 20px;
+    position: relative;
 }
 
 #city-input {
-    width: 65%;
-    padding: 12px;
-    border-radius: 30px;
+    width: 70%;
+    padding: 10px;
+    border-radius: 20px;
     border: none;
-    outline: none;
     font-size: 16px;
+    outline: none;
     text-align: center;
-    margin-right: 10px;
 }
 
 #search-btn {
-    padding: 12px 20px;
-    border-radius: 30px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #333;
     border: none;
-    background-color: #ff4e50;
-    color: #fff;
+    margin-left: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 #search-btn:hover {
-    background-color: #f9d423;
+    background-color: #36d1dc;
+    color: #fff;
 }
 
 .weather-info {
@@ -78,47 +67,24 @@ h1 {
 }
 
 .weather-info h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    background: -webkit-linear-gradient(#5b86e5, #36d1dc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.weather-info p {
+    font-size: 18px;
+    color: #ddd;
+    margin: 5px 0;
 }
 
 .icon img {
     width: 100px;
+    margin-bottom: 10px;
+}
+
+.icon img {
     animation: bounce 1.5s infinite;
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card p {
-    font-size: 18px;
-    margin: 5px 0;
-    color: #fff;
-}
-
-.temperature-card {
-    background: linear-gradient(45deg, #ff6e7f, #bfe9ff);
-}
-
-.description-card {
-    background: linear-gradient(45deg, #36d1dc, #5b86e5);
-}
-
-.details-card {
-    background: linear-gradient(45deg, #f9d423, #ff4e50);
 }
 
 @keyframes bounce {
