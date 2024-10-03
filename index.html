@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Weather</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="weather-container" id="weather-container">
-        <h1>Colorful Live Weather</h1>
+        <h1>Live Weather</h1>
         <div class="search-box">
-            <input type="text" id="city-input" placeholder="Enter city" autocomplete="off">
+            <input type="text" id="city-input" placeholder="Enter city">
             <button id="search-btn">Search</button>
         </div>
         <div class="weather-info">
@@ -19,21 +18,15 @@
                 <img id="weather-icon" src="https://icons.veryicon.com/png/o/miscellaneous/test-6/weather-91.png" alt="Weather Icon">
             </div>
             <h2 id="city-name"></h2>
-            <div class="card temperature-card">
-                <p id="temperature"></p>
-                <p id="feels-like"></p>
-            </div>
-            <div class="card description-card">
-                <p id="description"></p>
-            </div>
-            <div class="card details-card">
-                <p id="humidity"></p>
-                <p id="pressure"></p>
-                <p id="wind"></p>
-                <p id="visibility"></p>
-                <p id="sunrise"></p>
-                <p id="sunset"></p>
-            </div>
+            <p id="temperature"></p>
+            <p id="feels-like"></p>
+            <p id="description"></p>
+            <p id="humidity"></p>
+            <p id="pressure"></p>
+            <p id="wind"></p>
+            <p id="visibility"></p>
+            <p id="sunrise"></p>
+            <p id="sunset"></p>
         </div>
     </div>
     <script src="script.js"></script>
