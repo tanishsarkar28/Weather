@@ -71,3 +71,27 @@ document.getElementById('light-mode').addEventListener('click', () => {
 document.getElementById('dark-mode').addEventListener('click', () => {
     document.body.style.background = 'linear-gradient(135deg, #434343, #000000)';
 });
+const toggleSwitch = document.querySelector('#checkbox');
+const currentTheme = localStorage.getItem('theme') || 'light';
+
+// Load theme based on user preference
+if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleSwitch.checked = true;
+} else {
+    document.body.classList.add('light-mode');
+}
+
+// Toggle between light and dark mode
+toggleSwitch.addEventListener('change', function() {
+    if (toggleSwitch.checked) {
+        document.body.classList.remove('light-mode');
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
